@@ -7,7 +7,7 @@ async function findAll() {
 }
 
 async function findById(id: string) {
-    const { data, error } = await supabase.from("vendas").select("*, veiculos(id, modelo), clientes(id, nome)").eq("id", id).single();
+    const { data, error } = await supabase.from("vendas").select("*, veiculos(id, modelo), clientes(id, nome)").eq("id", id).maybeSingle();
     if (error) throw error;
     return data;
 }
@@ -19,15 +19,14 @@ async function create(venda: Record<string, unknown>) {
 }
 
 async function update(id: string, venda: Record<string, unknown>) {
-    const { data, error } = await supabase.from("vendas").update(venda).eq("id", id).select().single();
+    const { data, error } = await supabase.from("vendas").update({ ...venda, updated_at: new Date().toISOString() }).eq("id", id).select().single();
     if (error) throw error;
     return data;
 }
 
 async function remove(id: string) {
-    const { data, error } = await supabase.from("vendas").delete().eq("id", id).select().single();
+    const { error } = await supabase.from("vendas").delete().eq("id", id);
     if (error) throw error;
-    return data;
 }
 
 export default { findAll, findById, create, update, remove };
