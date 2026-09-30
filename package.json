@@ -1,0 +1,41 @@
+{
+  "name": "concessionaria-api",
+  "version": "1.0.0",
+  "description": "API REST para gerenciamento de uma concessionaria.",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "tsx src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoMarcos3/Concessionaria_JL.git"
+  },
+  "keywords": [
+    "Back-end",
+    "js",
+    "ts",
+    "API",
+    "concessionaria"
+  ],
+  "author": "João Marcos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoaoMarcos3/restaurant_ordering_systeam/issues"
+  },
+  "homepage": "https://github.com/JoaoMarcos3/restaurant_ordering_systeam#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "@types/express": "^5.0.6",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  }
+}
